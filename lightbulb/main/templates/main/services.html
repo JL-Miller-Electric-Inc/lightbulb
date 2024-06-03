@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>JL Miller Electric, Inc. | Services</title>
+{% endblock %}
+
+{% block leftside %}
+    <div class="lightbulb-breadcrumb-nav">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" ><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Services</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="lightbulb-services">
+        <h5><span style="color: red;">Services We Offer</span></h5>
+        <ul>
+            <li>Indoor and Outdoor Lighting</li>
+            <li>Pool Lighting</li>
+            <li>Security Lighting</li>
+            <li>Commercial Lighting</li>
+            <li>Residential Wiring</li>
+            <li>Commercial Wiring</li>
+            <li>Car Chargers</li>
+            <li>Home Automation</li>
+            <li>Security Camera Installation</li>
+            <li>Panel Upgrade or Replacement</li>
+            <li>Ceiling Fans</li>
+            <li>Smoke and Carbon Monoxide Detectors</li>
+            <li>Doorbell Systems</li>
+            <li>GFCI and Arcfault Protection</li>
+            <li>Electrical Diagnosis and Repair</li>
+            <li>A/C Generator Installation</li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="lightbulb-services-statement">
+        <h5>Our Services</h5>
+        <p>At our company, we provide an extensive range of
+            professional electrical services tailored to meet
+            the diverse needs of our clientele. For a more
+            in-depth understanding of our services, we encourage
+            you to explore the video below or subscribe to our 
+            YouTube channel, where we regularly share informative
+            content and updates about our company.
+        </p>
+    </div>
+    <div class="lightbulb-services-video">
+        <iframe style="min-width: 275px; max-width: 600px; min-height: 225px; max-height: 415px;" height="300" width="92%" src="https://www.youtube.com/embed/2GT3Z7-RKDU?si=G4Xc0Dh5JfKvb8d0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+{% endblock %}
+
+{% block rightside %}
+    <div class="lightbulb-picture-right">
+        <img class="lightbulb-fixture-1" src="{{ url_for('static', filename='images/fixture.jpeg') }}" alt="Hanging Fixture">
+    </div>
+{% endblock %}

@@ -1,0 +1,361 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>JL Miller Electric, Inc. | Terminology</title>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/dynamic-content.js') }}"></script>
+{% endblock %}
+
+
+{% block leftside %}
+    <div class="lightbulb-breadcrumb-nav">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" ><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Terminology</li>
+            </ol>
+        </nav>
+    </div>
+    <div id="terminology-nav" class="lightbulb-terminology-nav">
+        <h5 style="border-bottom: 1px solid white; padding-bottom: 3px;"><span style="color: white; margin-left: 5px;">&nbsp;&nbsp;Category</span></h5>
+        <ul>
+            <li id="general-terms" onclick="showContent('general')">General</li>
+            <li id="residental-terms" onclick="showContent('residential')">Residential</li>
+            <li id="commercial-terms" onclick="showContent('commercial')">Commercial</li>
+            <li id="ev-terms" onclick="showContent('ev')">Electric Vehicles</li>
+            <li id="lighting-terms" onclick="showContent('lighting')">Lighting</li>
+            <li id="wiring-terms" onclick="showContent('wiring')">Wiring</li>
+            <li id="generator-terms" onclick="showContent('generator')">Generators</li>
+            <li id="camera-terms" onclick="showContent('camera')">Security Cameras</li>
+            <li id="panel-terms" onclick="showContent('panel')">Electrical Panel</li>
+            <li id="ceilingfan-terms" onclick="showContent('ceilingfan')">Ceiling Fan</li>
+        </ul>
+    </div>
+    <div id="general" style="display: none;">
+        <h5>Voltage</h5>
+        <p>Voltage is the electric potential difference between two points. It is the force that pushes electric charges through a conductor and is measured in volts (V).</p>
+        
+        <h5>Current</h5>
+        <p>Current is the flow of electric charge through a conductor. It is measured in amperes (A) and indicates how much charge is flowing per unit time.</p>
+        
+        <h5>Resistance</h5>
+        <p>Resistance is a measure of the opposition to the flow of electric current in a conductor. It is measured in ohms (Ω).</p>
+        
+        <h5>Capacitance</h5>
+        <p>Capacitance is the ability of a system to store an electric charge. It is measured in farads (F).</p>
+        
+        <h5>Inductance</h5>
+        <p>Inductance is the property of an electrical conductor by which a change in current generates an electromotive force (emf) in the conductor itself and in nearby conductors. It is measured in henrys (H).</p>
+        
+        <h5>Power</h5>
+        <p>Power is the rate at which electrical energy is transferred by an electric circuit. It is measured in watts (W).</p>
+        
+        <h5>Frequency</h5>
+        <p>Frequency is the number of cycles per second in an alternating current (AC) signal. It is measured in hertz (Hz).</p>
+        
+        <h5>Impedance</h5>
+        <p>Impedance is the total opposition that a circuit presents to the flow of alternating current (AC). It is a combination of resistance and reactance and is measured in ohms (Ω).</p>
+        
+        <h5>Transformer</h5>
+        <p>A transformer is an electrical device that transfers electrical energy between two or more circuits through electromagnetic induction.</p>
+        
+        <h5>Circuit Breaker</h5>
+        <p>A circuit breaker is a safety device that automatically stops the flow of electricity in a circuit if it detects an overload or a short circuit.</p>        
+    </div>
+
+    <div id="residential" style="display: none;">
+        <h5>Service Panel</h5>
+        <p>The service panel, also known as the breaker panel, is the central distribution point for electrical circuits in a home, containing circuit breakers or fuses.</p>
+
+        <h5>GFCI</h5>
+        <p>GFCI, or Ground Fault Circuit Interrupter, is a device that shuts off an electric power circuit when it detects that current is flowing along an unintended path, such as through water or a person.</p>
+
+        <h5>Outlet</h5>
+        <p>An outlet, also known as a receptacle, is a socket that connects an electrical device to an electricity supply.</p>
+
+        <h5>Switch</h5>
+        <p>A switch is a device for making and breaking the connection in an electric circuit, allowing the control of electrical devices like lights.</p>
+
+        <h5>Conduit</h5>
+        <p>Conduit is a protective tube through which electrical wires are run to protect them from damage and to provide a neat appearance.</p>
+
+        <h5>Wire Gauge</h5>
+        <p>Wire gauge refers to the size of the wire, which determines its current-carrying capacity. Common residential wire gauges include 14, 12, and 10 AWG.</p>
+
+        <h5>Grounding</h5>
+        <p>Grounding is the process of connecting an electrical system to the earth to ensure safety by providing a path for fault currents to dissipate.</p>
+
+        <h5>Arc Fault Circuit Interrupter (AFCI)</h5>
+        <p>An AFCI is a circuit breaker designed to detect and prevent electrical arcs, which are a common cause of electrical fires.</p>
+
+        <h5>Three-Way Switch</h5>
+        <p>A three-way switch allows control of a single light from two different locations, commonly used in stairways or large rooms.</p>
+
+        <h5>Breaker</h5>
+        <p>A breaker, or circuit breaker, is a safety device that automatically interrupts the flow of electricity in a circuit when it detects an overload or short circuit.</p>
+    </div>
+
+    <div id="commercial" style="display: none;">
+        <h5>Three-Phase Power</h5>
+        <p>Three-phase power is a type of polyphase system used by electrical grids to distribute power efficiently, commonly used in commercial and industrial settings due to its ability to handle heavy loads.</p>
+
+        <h5>Busbar</h5>
+        <p>A busbar is a metallic strip or bar used to conduct electricity within a switchboard, distribution board, substation, or other electrical apparatus for high current power distribution.</p>
+
+        <h5>Load Center</h5>
+        <p>A load center is a centralized point where the incoming power is distributed to various circuits throughout a commercial building, similar to a residential service panel but designed for higher capacity.</p>
+
+        <h5>Transformer Vault</h5>
+        <p>A transformer vault is a secure, fire-resistant room or enclosure designed to house transformers and protect them from environmental factors and unauthorized access.</p>
+
+        <h5>Switchgear</h5>
+        <p>Switchgear is a collection of electrical disconnect switches, fuses, and circuit breakers used to control, protect, and isolate electrical equipment in a commercial power system.</p>
+
+        <h5>UPS (Uninterruptible Power Supply)</h5>
+        <p>A UPS is a device that provides emergency power to a load when the input power source, typically the main power supply, fails, ensuring continuous operation of critical equipment.</p>
+
+        <h5>Motor Control Center (MCC)</h5>
+        <p>An MCC is an assembly to control some or all electric motors in a central location, used in commercial and industrial settings for managing multiple motors.</p>
+
+        <h5>Power Factor Correction</h5>
+        <p>Power factor correction is the process of improving the power factor of a power system to increase energy efficiency and reduce electricity costs, often involving the use of capacitors or other devices.</p>
+
+        <h5>Standby Generator</h5>
+        <p>A standby generator is a backup electrical system that operates automatically during a power outage, providing temporary power to essential systems and preventing operational disruptions.</p>
+
+        <h5>Submetering</h5>
+        <p>Submetering involves installing additional meters within a building to measure individual tenant or departmental energy consumption, allowing for more accurate billing and energy management.</p>
+    </div>
+
+    <div id="ev" style="display: none;">
+        <h5>Battery Electric Vehicle (BEV)</h5>
+        <p>A Battery Electric Vehicle is a type of electric vehicle that runs entirely on electricity stored in batteries, with no internal combustion engine.</p>
+
+        <h5>Hybrid Electric Vehicle (HEV)</h5>
+        <p>A Hybrid Electric Vehicle combines a conventional internal combustion engine with an electric propulsion system, allowing for improved fuel efficiency.</p>
+
+        <h5>Plug-in Hybrid Electric Vehicle (PHEV)</h5>
+        <p>A Plug-in Hybrid Electric Vehicle has both an internal combustion engine and an electric motor, with batteries that can be recharged by plugging into an external power source.</p>
+
+        <h5>Regenerative Braking</h5>
+        <p>Regenerative Braking is a technology used in electric and hybrid vehicles where the electric motor helps to slow the vehicle and converts some of the kinetic energy into electricity, which is stored in the battery.</p>
+
+        <h5>Charging Station</h5>
+        <p>A Charging Station, also known as an EVSE (Electric Vehicle Supply Equipment), is a device that supplies electric energy for the recharging of electric vehicles.</p>
+
+        <h5>Range</h5>
+        <p>Range refers to the maximum distance an electric vehicle can travel on a single charge of its battery.</p>
+
+        <h5>Range Anxiety</h5>
+        <p>Range Anxiety is the fear or concern that an electric vehicle will run out of battery power before reaching a charging station or the destination.</p>
+
+        <h5>Level 1 Charging</h5>
+        <p>Level 1 Charging uses a standard household outlet (120V) to charge an electric vehicle, providing a slow charging rate suitable for overnight charging.</p>
+
+        <h5>Level 2 Charging</h5>
+        <p>Level 2 Charging uses a 240V outlet, similar to those used by large home appliances, providing a faster charging rate compared to Level 1 charging.</p>
+
+        <h5>DC Fast Charging</h5>
+        <p>DC Fast Charging, also known as Level 3 charging, provides rapid charging by converting AC power to DC within the charging station, allowing for much quicker battery recharge times.</p>
+    </div>
+
+    <div id="lighting" style="display: none;">
+        <h5>Lumen</h5>
+        <p>A lumen is a unit of measurement for the total amount of visible light emitted by a source. It measures the brightness of a light bulb.</p>
+
+        <h5>Watt</h5>
+        <p>A watt is a unit of power that measures the rate of energy consumption by a light source. It indicates how much electricity a light bulb uses.</p>
+
+        <h5>Color Temperature</h5>
+        <p>Color temperature is a way to describe the light appearance provided by a light bulb, measured in Kelvin (K). It ranges from warm (yellowish) to cool (bluish) tones.</p>
+
+        <h5>CRI (Color Rendering Index)</h5>
+        <p>CRI measures the ability of a light source to accurately reproduce the colors of various objects in comparison to natural light. It is rated on a scale from 0 to 100.</p>
+
+        <h5>LED (Light Emitting Diode)</h5>
+        <p>LED is a type of solid-state lighting that uses light-emitting diodes to produce light. LEDs are energy-efficient and have a long lifespan.</p>
+
+        <h5>Incandescent Bulb</h5>
+        <p>An incandescent bulb produces light by heating a filament until it glows. These bulbs are less energy-efficient and have a shorter lifespan compared to other types of bulbs.</p>
+
+        <h5>Halogen Bulb</h5>
+        <p>A halogen bulb is a type of incandescent bulb that contains a small amount of halogen gas, which increases the light output and lifespan of the bulb.</p>
+
+        <h5>Fluorescent Lamp</h5>
+        <p>A fluorescent lamp is a type of light source that uses electricity to excite mercury vapor, which produces ultraviolet light that causes a phosphor coating to emit visible light.</p>
+
+        <h5>Ballast</h5>
+        <p>A ballast is a device used in fluorescent and HID lighting systems to regulate the current to the light source and provide sufficient voltage to start the lamps.</p>
+
+        <h5>Dimmer Switch</h5>
+        <p>A dimmer switch is a device that allows the user to adjust the brightness of a light. It works by reducing the voltage or current supplied to the light source.</p>
+    </div>
+
+    <div id="wiring" style="display: none;">
+        <h5>Conductor</h5>
+        <p>A conductor is a material that allows the flow of electrical current. Common conductors include copper and aluminum, used in electrical wiring.</p>
+
+        <h5>Insulation</h5>
+        <p>Insulation is a non-conductive material that surrounds and protects electrical conductors, preventing accidental contact and electrical leakage.</p>
+
+        <h5>Ground Wire</h5>
+        <p>A ground wire is a safety wire that provides a path to the earth to carry current away in case of a short circuit or fault, helping to prevent electric shock.</p>
+
+        <h5>Neutral Wire</h5>
+        <p>The neutral wire carries current back to the electrical panel and completes the electrical circuit. It is typically white or gray in color.</p>
+
+        <h5>Hot Wire</h5>
+        <p>The hot wire carries electrical current from the power source to the outlet or device. It is typically black or red in color and should be handled with care.</p>
+
+        <h5>Romex</h5>
+        <p>Romex is a brand name commonly used to refer to non-metallic sheathed cable (NM cable) used in residential wiring. It consists of insulated conductors encased in a plastic sheath.</p>
+
+        <h5>Circuit Breaker</h5>
+        <p>A circuit breaker is a safety device that automatically stops the flow of electricity in a circuit if it detects an overload or short circuit.</p>
+
+        <h5>Junction Box</h5>
+        <p>A junction box is an enclosure used to protect and join electrical wires together safely. It provides a secure place for wire connections and is typically installed in walls or ceilings.</p>
+
+        <h5>BX Cable</h5>
+        <p>BX cable, also known as armored cable, consists of insulated conductors encased in a flexible metal sheath, providing additional protection against physical damage.</p>
+
+        <h5>Conduit</h5>
+        <p>Conduit is a protective tube through which electrical wires are run to protect them from damage and to provide a neat appearance. Types include rigid, flexible, and EMT (electrical metallic tubing).</p>
+    </div>
+
+    <div id="generator" style="display: none;">
+        <h5>Alternator</h5>
+        <p>The alternator is the part of a generator that converts mechanical energy into electrical energy through electromagnetic induction.</p>
+
+        <h5>Prime Mover</h5>
+        <p>The prime mover is the component of the generator that provides mechanical energy to the alternator, commonly a gasoline, diesel, or natural gas engine.</p>
+
+        <h5>Standby Generator</h5>
+        <p>A standby generator is an emergency power system that automatically turns on when the main power supply fails, providing backup electricity to essential systems.</p>
+
+        <h5>Inverter</h5>
+        <p>An inverter is a device that converts direct current (DC) from the generator's battery into alternating current (AC) for use by household appliances and systems.</p>
+
+        <h5>Transfer Switch</h5>
+        <p>A transfer switch is an electrical switch that switches a load between two sources, such as from the main power supply to the generator during a power outage.</p>
+
+        <h5>kW (Kilowatt)</h5>
+        <p>A kilowatt (kW) is a unit of power equal to 1,000 watts. It is used to measure the output power of a generator.</p>
+
+        <h5>Automatic Voltage Regulator (AVR)</h5>
+        <p>An Automatic Voltage Regulator (AVR) is a device that regulates the voltage output of a generator to ensure a consistent and stable power supply.</p>
+
+        <h5>Fuel Tank</h5>
+        <p>The fuel tank stores the fuel needed to run the generator's engine. The size of the tank determines how long the generator can operate before needing a refill.</p>
+
+        <h5>Cooling System</h5>
+        <p>The cooling system in a generator is responsible for removing excess heat produced during operation to prevent overheating and ensure efficient performance.</p>
+
+        <h5>Load</h5>
+        <p>The load refers to the amount of electrical power consumed by all devices and systems connected to the generator. It is crucial to match the generator's capacity with the load requirements.</p>
+    </div>
+
+    <div id="camera" style="display: none;">
+        <h5>IP Camera</h5>
+        <p>An IP camera, or Internet Protocol camera, is a type of digital video camera that receives and sends video footage via an IP network, allowing for remote viewing and recording.</p>
+
+        <h5>DVR (Digital Video Recorder)</h5>
+        <p>A DVR is a device that records video in a digital format to a disk drive, USB flash drive, or other storage medium, often used with analog security cameras.</p>
+
+        <h5>NVR (Network Video Recorder)</h5>
+        <p>An NVR is a device that records video footage from IP cameras directly over a network, providing centralized storage and management of video data.</p>
+
+        <h5>PTZ Camera</h5>
+        <p>PTZ stands for Pan-Tilt-Zoom, referring to a camera that can be remotely controlled to pan (move left or right), tilt (move up or down), and zoom in or out.</p>
+
+        <h5>Infrared (IR) Camera</h5>
+        <p>An IR camera is equipped with infrared LEDs to capture video in low light or complete darkness by emitting infrared light, which is invisible to the human eye but can be detected by the camera sensor.</p>
+
+        <h5>Motion Detection</h5>
+        <p>Motion detection is a feature in security cameras that triggers recording or alerts when movement is detected within the camera's field of view.</p>
+
+        <h5>Field of View (FOV)</h5>
+        <p>The field of view is the area that a camera can capture at any given moment, typically measured in degrees. A wider FOV allows a camera to monitor a larger area.</p>
+
+        <h5>Resolution</h5>
+        <p>Resolution refers to the clarity and detail of the video captured by a camera, usually measured in pixels. Higher resolution provides clearer and more detailed images.</p>
+
+        <h5>Cloud Storage</h5>
+        <p>Cloud storage is a service that allows video footage from security cameras to be stored offsite on remote servers, providing easy access and backup without the need for physical storage devices.</p>
+
+        <h5>WDR (Wide Dynamic Range)</h5>
+        <p>WDR is a camera feature that balances the lighting in images to capture details in both bright and dark areas, improving video quality in challenging lighting conditions.</p>
+    </div>
+
+    <div id="panel" style="display: none;">
+        <h5>Main Breaker</h5>
+        <p>The main breaker is a large switch in the electrical panel that controls the flow of electricity to the entire building, allowing for the power to be shut off in an emergency.</p>
+
+        <h5>Circuit Breaker</h5>
+        <p>A circuit breaker is a safety device within the electrical panel that automatically stops the flow of electricity in a circuit if it detects an overload or short circuit.</p>
+
+        <h5>Subpanel</h5>
+        <p>A subpanel is a smaller service panel that branches off from the main panel to distribute power to a specific area or for a specific purpose, providing additional circuit capacity.</p>
+
+        <h5>Busbar</h5>
+        <p>A busbar is a metal strip or bar within the electrical panel that distributes power to the circuit breakers. It acts as a central point for electrical current distribution.</p>
+
+        <h5>Grounding Bar</h5>
+        <p>The grounding bar is a terminal within the electrical panel where all ground wires are connected, providing a safe path to earth for fault currents.</p>
+
+        <h5>Neutral Bar</h5>
+        <p>The neutral bar is a terminal within the electrical panel where all neutral wires are connected, completing the electrical circuit back to the power source.</p>
+
+        <h5>Service Entrance</h5>
+        <p>The service entrance is the point where the electrical service from the utility company connects to the building's electrical system, usually leading to the main breaker panel.</p>
+
+        <h5>Load Center</h5>
+        <p>The load center, commonly referred to as the electrical panel, is the central distribution point for all the electrical circuits in a building, containing breakers or fuses for circuit protection.</p>
+
+        <h5>Arc Fault Circuit Interrupter (AFCI)</h5>
+        <p>An AFCI is a specialized type of circuit breaker within the electrical panel designed to detect and prevent electrical arcs, reducing the risk of electrical fires.</p>
+
+        <h5>Ground Fault Circuit Interrupter (GFCI)</h5>
+        <p>A GFCI is a type of circuit breaker or receptacle that quickly shuts off power when it detects a ground fault, protecting against electric shock, especially in wet areas.</p>
+    </div>
+
+    <div id="ceilingfan" style="display: none;">
+        <h5>Blade Pitch</h5>
+        <p>Blade pitch refers to the angle of the fan blades relative to the horizontal plane. It affects the airflow and efficiency of the ceiling fan.</p>
+
+        <h5>Downrod</h5>
+        <p>A downrod is a metal pipe used to lower the ceiling fan to the desired height from the ceiling, improving airflow and ensuring adequate clearance.</p>
+
+        <h5>CFM (Cubic Feet per Minute)</h5>
+        <p>CFM measures the volume of air a ceiling fan moves per minute. Higher CFM values indicate better airflow and cooling efficiency.</p>
+
+        <h5>Reversible Motor</h5>
+        <p>A reversible motor allows the ceiling fan to rotate in both directions, enabling it to provide cooling in the summer and help circulate warm air in the winter.</p>
+
+        <h5>Remote Control</h5>
+        <p>A remote control is a handheld device that allows users to adjust the speed, lighting, and other settings of a ceiling fan wirelessly.</p>
+
+        <h5>Flush Mount</h5>
+        <p>A flush mount, or hugger mount, refers to a ceiling fan installation directly against the ceiling, suitable for rooms with low ceilings.</p>
+
+        <h5>Energy Star Rated</h5>
+        <p>Energy Star rated ceiling fans meet strict energy efficiency guidelines set by the Environmental Protection Agency, reducing energy consumption and operating costs.</p>
+
+        <h5>Light Kit</h5>
+        <p>A light kit is an optional accessory for ceiling fans that includes lighting fixtures, allowing the fan to provide both air circulation and illumination.</p>
+
+        <h5>Fan Speed Settings</h5>
+        <p>Fan speed settings refer to the different speed levels at which a ceiling fan can operate, typically controlled by a switch, pull chain, or remote control.</p>
+
+        <h5>Canopy</h5>
+        <p>The canopy is the cover that attaches to the ceiling, concealing the electrical box and mounting hardware for a ceiling fan, providing a finished look.</p>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div id="dynamic-content">
+        <h5>Select A Category</h5>
+    </div>
+{% endblock %}

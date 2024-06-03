@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Allow all search engines to index the following directories
+User-agent: *
+Allow: /services/
+Allow: /terminology/
+Allow: /aboutus/
+
+# Sitemap location
+Sitemap: https://jlmillerelectric.com/sitemap.xml

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>JL Miller Electric, Inc. | About Us</title>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/orgchart.js') }}"></script>
+{% endblock %}
+
+{% block leftside %}
+    <div class="lightbulb-breadcrumb-nav">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" ><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div style="margin-top: 15px; margin-left: 15px;"><h4>Org Chart</h4></div>
+    <div id="orgchart"></div>
+    <div style="margin-top: 15px; margin-left: 15px;"><h4>Video</h4></div>
+    <div class="lightbulb-about-us">
+        <iframe class="lightbulb-about-us-video" src="https://www.youtube.com/embed/LbVjD8Liir8?si=C9Aoz9zl0jRD7RMr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+{% endblock %}
