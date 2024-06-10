@@ -18,6 +18,10 @@
             </ol>
         </nav>
     </div>
+    <div class="lightbulb-about">
+        <h5><span style="color: blue;">About Our Company</span></h5>
+        <p>Founded by Keith Miller and his family over 20 years ago, JL Miller Electric, Inc. has evolved from focusing on new construction projects to specializing in updating electrical systems for residential and light commercial clients. Known for our commitment to quality and safety, we now proudly serve over 1,000 satisfied customers throughout Southern California. By embracing modern technology, we provide efficient, personalized service, including the convenience of online payments.</p>
+    </div>
 {% endblock %}
 
 {% block main %}
@@ -26,5 +30,11 @@
     <div style="margin-top: 15px; margin-left: 15px;"><h4>Video</h4></div>
     <div class="lightbulb-about-us">
         <iframe class="lightbulb-about-us-video" src="https://www.youtube.com/embed/LbVjD8Liir8?si=C9Aoz9zl0jRD7RMr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+{% endblock %}
+
+{% block rightside %}
+    <div class="lightbulb-crystal-container">
+        <img class="lightbulb-crystal" src="{{ url_for('static', filename='images/crystal_fixture.png') }}" alt="Crystal Fixture" />
     </div>
 {% endblock %}

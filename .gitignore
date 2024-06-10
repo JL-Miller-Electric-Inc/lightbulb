@@ -1,4 +1,6 @@
 .venv/
 .DS_Store
 __pycache__
-*.pyc
+gunicorn_access.log
+gunicorn_error.log
+

@@ -1,3 +1,5 @@
 flask
 rfc3339
 ansicolors
+gunicorn
+gevent

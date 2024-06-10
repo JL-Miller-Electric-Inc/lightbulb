@@ -9,24 +9,26 @@ import logging
 
 from lightbulb.main.views import main_blueprint
 
+cpid = os.getpid()
+
 class CustomRequestFormatter(logging.Formatter):
     def format(self, record):
+        record.pid = os.getpid()
         return super().format(record)
     
 
 system_handler = logging.StreamHandler()
 system_handler.setFormatter(CustomRequestFormatter(
-    '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+    '[%(asctime)s] - PID: %(pid)s - %(name)s - %(levelname)s - %(message)s'
 ))
 
-lightbulb_logger = logging.getLogger('app')
-lightbulb_logger.setLevel(logging.DEBUG)
+request_logger = logging.getLogger('requests')
+request_logger.setLevel(logging.DEBUG)
 
-lightbulb_handler = logging.StreamHandler()
-lightbulb_handler.setFormatter(logging.Formatter(''))
+request_handler = logging.StreamHandler()
+request_handler.setFormatter(logging.Formatter(''))
 
-lightbulb_logger.addHandler(lightbulb_handler)
-
+request_logger.addHandler(request_handler)
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
@@ -35,7 +37,6 @@ def create_app():
 
     if len(app.logger.handlers) > 1:
         app.logger.removeHandler(app.logger.handlers[0])
-
 
     werkzueg_logger = logging.getLogger('werkzeug')
     werkzueg_logger.setLevel('ERROR')
@@ -47,25 +48,26 @@ def create_app():
         app.logger.setLevel('INFO')
         app.debug = False
 
-    lightbulb_logger.info(f"VIRTUAL_ENV = {os.environ.get('VIRTUAL_ENV', str(None))}")
-    lightbulb_logger.info(f"FLASK_DEBUG = {app.debug}")
-    lightbulb_logger.info(f"FLASK_RUN_FROM_CLI = {os.environ.get('FLASK_RUN_FROM_CLI')}")
-    lightbulb_logger.info(f"FLASK_ENV = {os.environ.get('FLASK_ENV')}")
-    lightbulb_logger.info(f"FLASK_APP = {os.environ.get('FLASK_APP')}")
+    now = time.time()
+    dt = datetime.datetime.fromtimestamp(now)
+    timestamp = rfc3339(dt, utc=True)
+
+    app.logger.info(f"FLASK_ENV = {os.environ.get('FLASK_ENV')}")
+    app.logger.info(f"FLASK_APP = {os.environ.get('FLASK_APP')}")
 
     app.config.from_mapping(
         SECRET_KEY=os.environ.get('LIGHTBULB_SECRET_KEY', '0000000000000000000000000000000000'),
     )
 
-    lightbulb_logger.info(f"LIGHTBULB_SECRET_KEY: {app.config['SECRET_KEY']}")
+    app.logger.debug(f"LIGHTBULB_SECRET_KEY = {app.config['SECRET_KEY']}")
 
     blueprint_start = time.time()
     app.register_blueprint(main_blueprint)
     blueprint_end = time.time()
 
-    blueprint_duration = round(blueprint_end - blueprint_start, 2)
+    blueprint_duration = round(blueprint_end - blueprint_start, 4)
 
-    app.logger.debug(f"blueprints loaded in {blueprint_duration} seconds.")
+    app.logger.info(f"blueprints loaded in {blueprint_duration} seconds.")
     
     @app.before_request
     def start_timer():
@@ -80,7 +82,7 @@ def create_app():
             return response
 
         now = time.time()
-        duration = round(now - g.start, 2)
+        duration = round(now - g.start, 4)
         dt = datetime.datetime.fromtimestamp(now)
         timestamp = rfc3339(dt, utc=True)
 
@@ -89,6 +91,7 @@ def create_app():
         args = dict(request.args)
 
         log_params = [
+            ('pid', cpid, 'green'),
             ('method', request.method, 'blue'),
             ('path', request.path, 'blue'),
             ('status', response.status_code, 'yellow'),
@@ -110,13 +113,8 @@ def create_app():
             parts.append(part)
             line = " ".join(parts)
 
-        lightbulb_logger.info(line)
+        request_logger.info(line)
 
         return response
     
     return app
-
-if __name__ == '__main__': 
-    app = create_app()
-    app.run()
-
