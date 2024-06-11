@@ -10,7 +10,7 @@ wsgi_app = "run:app"
 worker_class = "gevent"
 workers = 4
 
-loglevel = "info"
+loglevel = "debug"
 
-accesslog = "/app/logs/gunicorn-access.log"
-errorlog = "/app/logs/gunicorn-error.log"
+errorlog = "-"
+
