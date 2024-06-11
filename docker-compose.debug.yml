@@ -11,4 +11,10 @@ services:
       - 5050:5050
       - 5678:5678
     environment:
-      - FLASK_APP=-m lightbulb
+      - FLASK_APP=lightbulb
+      - FLASK_ENV=development
+    volumes:
+     - logs:/apps/logs/
+
+volumes:
+  logs: {}
