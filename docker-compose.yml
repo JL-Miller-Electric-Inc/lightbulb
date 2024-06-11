@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  lightbulb:
+    image: lightbulb
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5050:5050
