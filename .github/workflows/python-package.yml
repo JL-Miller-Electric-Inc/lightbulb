@@ -57,8 +57,7 @@ jobs:
     # Deploy to the macbook-air which is used for testing
     deploy_macbook_air:
       needs: build
-      runs-on: self-hosted
-      name: macbook-air
+      runs-on: [self-hosted, macbook-air]
       steps:
       - name: 'Login to GitHub Container Registry'
         run: |
@@ -74,8 +73,7 @@ jobs:
     # Deploy to the mini-4 which is used for production and requires manual approval
     deploy_mini_4:
         needs: deploy_macbook_air
-        runs-on: self-hosted
-        name: mini-4
+        runs-on: [self-hosted, mini-4]
         if: ${{ github.event.pull_request.merged == true }}
         steps:
         - name: 'Manual approval required'
