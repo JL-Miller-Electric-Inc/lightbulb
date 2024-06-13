@@ -54,6 +54,7 @@ jobs:
             push: true
             tags: ghcr.io/jl-miller-electric-inc/lightbulb:latest
 
+    # Deploy to the macbook-air which is used for testing
     deploy_macbook_air:
       needs: build
       runs-on: self-hosted
@@ -70,6 +71,7 @@ jobs:
           docker pull ghcr.io/jl-miller-electric-inc/lightbulb:latest
           docker run -d --name lightbulb ghcr.io/jl-miller-electric-inc/lightbulb:latest
       
+    # Deploy to the mini-4 which is used for production and requires manual approval
     deploy_mini_4:
         needs: deploy_macbook_air
         runs-on: self-hosted
