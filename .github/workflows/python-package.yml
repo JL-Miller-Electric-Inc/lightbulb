@@ -53,3 +53,41 @@ jobs:
             context: .
             push: true
             tags: ghcr.io/jl-miller-electric-inc/lightbulb:latest
+
+    deploy_macbook_air:
+      needs: build
+      runs-on: self-hosted
+      name: macbook-air
+      steps:
+      - name: 'Login to GitHub Container Registry'
+        run: |
+          echo ${{ secrets.GHCR_PASSWORD }} | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
+      - name: 'Deploy container to macbook-air'
+        run: |
+          if [ "$(docker ps -aq -f name=lightbulb)" ]; then
+              docker rm -f lightbulb
+          fi
+          docker pull ghcr.io/jl-miller-electric-inc/lightbulb:latest
+          docker run -d --name lightbulb ghcr.io/jl-miller-electric-inc/lightbulb:latest
+      
+    deploy_mini_4:
+        needs: deploy_macbook_air
+        runs-on: self-hosted
+        name: mini-4
+        if: ${{ github.event.pull_request.merged == true }}
+        steps:
+        - name: 'Manual approval required'
+          uses: benc-uk/workflow-dispatch@v1
+          with:
+            workflow: deploy_mini_4
+            ref: main
+        - name: 'Login to GitHub Container Registry'
+          run: |
+            echo ${{ secrets.GHCR_PASSWORD }} | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
+        - name: 'Deploy container to mini-4'
+          run: |
+            if [ "$(docker ps -aq -f name=lightbulb)" ]; then
+                docker rm -f lightbulb
+            fi
+            docker pull ghcr.io/jl-miller-electric-inc/lightbulb:latest
+            docker run -d --name lightbulb ghcr.io/jl-miller-electric-inc/lightbulb:latest
