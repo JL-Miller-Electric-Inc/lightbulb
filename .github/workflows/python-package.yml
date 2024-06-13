@@ -80,7 +80,6 @@ jobs:
     deploy_mini_4:
         needs: deploy_macbook_air
         runs-on: [self-hosted, mini-4]
-        if: ${{ github.event.pull_request.merged == true }}
         steps:
         - name: 'Manual approval required'
           uses: benc-uk/workflow-dispatch@v1
