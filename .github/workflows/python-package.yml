@@ -1,5 +1,5 @@
 ---
-name: Python Linting, Unit Testing, Coverage, Build, and Publish Container
+name: Test, Build, and Deploy LightBulb App
 
 on:
     push:
