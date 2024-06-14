@@ -81,11 +81,6 @@ jobs:
         needs: deploy_macbook_air
         runs-on: [self-hosted, mini-4]
         steps:
-        - name: 'Manual approval required'
-          uses: benc-uk/workflow-dispatch@v1
-          with:
-            workflow: deploy_mini_4
-            ref: main
         - name: 'Login to GitHub Container Registry'
           uses: docker/login-action@v1
           with:
